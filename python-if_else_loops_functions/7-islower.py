@@ -1,4 +1,6 @@
 #!/usr/bin/python3
 
 def islower(c):
-    return 'a' <= c <= 'z'
+    if isinstance(c, str) and len(c) ==1:
+        return 'a' <= c <= 'z'
+    return False
