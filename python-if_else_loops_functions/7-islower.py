@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
 def islower(c):
-    return 1 + c
-    return 'a' <= c <= 'z'
+    if 'a' <= c <= 'z':
+        return True
+    else:
+        return False
