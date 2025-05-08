@@ -10,4 +10,5 @@ def uppercase():
 
     print("{}".format(result))
 
+
 uppercase()
