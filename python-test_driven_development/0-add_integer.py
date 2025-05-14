@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+This module is to add two integers.
+
+The function adds a and b=98.
+"""
 def add_integer(a, b=98):
     result = None
     result = int(a) + int(b)
