@@ -5,7 +5,7 @@
 198
 
 >>> add_integer(98)
-98
+196
 
 >>> add_integer(3, "4")
 Traceback (most recent call last):
