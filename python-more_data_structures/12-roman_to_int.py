@@ -6,7 +6,7 @@ def roman_to_int(roman_string):
     sum = 0
     prevValue = 0
 
-    for i in roman_string:
+    for i in reversed(roman_string):
         value = roman.get(i, 0)
         if value < prevValue:
             sum -= value
