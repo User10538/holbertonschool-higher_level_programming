@@ -1,0 +1,2 @@
+>>> matrix_divided(2, 1)
+2
