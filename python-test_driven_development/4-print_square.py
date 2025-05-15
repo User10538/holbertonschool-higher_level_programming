@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-This module is to prints My name is <first name> <last name>.
+This module is to prints a square with the character #.
 
 """
 
