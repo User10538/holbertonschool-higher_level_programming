@@ -20,7 +20,6 @@ def matrix_divided(matrix, div):
     """
 
     result = []
- 
 
     if not isinstance(matrix, list):
         raise TypeError("matrix must be a matrix"
@@ -36,7 +35,7 @@ def matrix_divided(matrix, div):
         raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
-    
+
     for row in matrix:
         new_row = []
         for i in row:
