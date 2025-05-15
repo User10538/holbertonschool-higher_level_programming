@@ -1,18 +1,20 @@
->>> from 0_add_integer import add_integer
+First import ``add_integer`` from the ``0-add_integer`` file:
 
->>> add_integer(1, 2)
+>>> add = __import__('0-add_integer').add_integer
+
+>>> add(1, 2)
 3
 
->>> add_integer(100)
+>>> add(100)
 198
 
->>> add_integer(98)
+>>> add(98)
 196
 
->>> add_integer(3, "4")
+>>> add(3, "4")
 Traceback (most recent call last):
 TypeError: b must be an integer
 
->>> add_integer("3", 4)
+>>> add("3", 4)
 Traceback (most recent call last):
 TypeError: a must be an integer
