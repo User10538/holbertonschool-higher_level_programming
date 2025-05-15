@@ -14,7 +14,7 @@ def print_square(size):
     Prints a square with the character #
 
     Raises:
-    TypeError exception with the message size must be an integer. 
+    TypeError exception with the message size must be an integer.
     ValueError exception with the message size must be >= 0.
     TypeError exception with the message size must be an integer
     """
@@ -23,7 +23,7 @@ def print_square(size):
     if size < 0:
         raise ValueError("size must be >= 0")
     if isinstance(size, float) and (size < 0):
-        raise TypeError("size must be an integer") 
+        raise TypeError("size must be an integer")
 
     for i in range(size):
         print("#" * size)
