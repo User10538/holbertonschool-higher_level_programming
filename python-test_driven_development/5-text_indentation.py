@@ -1,18 +1,19 @@
 #!/usr/bin/python3
 
 """
-This module is to prints a text with 2 new lines after each of these characters: ., ? and :
+This module is to prints a text with 2 new lines
+after each of these characters: ., ? and :
 
 """
 
 
 def text_indentation(text):
     """
-    The function prints a text with 2 new lines after 
+    The function prints a text with 2 new lines after
     each of these characters: ., ? and :
 
     Returns:
-    Prints a text with 2 new lines after each of 
+    Prints a text with 2 new lines after each of
     these characters: ., ? and :
 
     Raises:
@@ -29,6 +30,6 @@ def text_indentation(text):
             skip_space = False
 
         print("{}".format(i), end="")
-        if i in {',' , '?', ':'}:
+        if i in {',', '?', ':'}:
             print("\n")
             skip_space = True
