@@ -1,26 +1,22 @@
 First import ``matrix_divided`` from the ``2-matrix_divided`` file:
 
->>> divided = __import__('2-matrix_divided').matrix_divided
+>>> __import__('2-matrix_divided').matrix_divided
 
->>> divided([[6, 9], [12, 15]], 3)
-Traceback (most recent call last):
-TypeError: isinstance() arg 2 must be a type or tuple of types
+>>> matrix_divided([[6, 9], [12, 15]], 3)
+[[2.0, 3.0], [4.0, 5.0]]
 
-divided("not a list", 2)
+>>> matrix_divided("not a list", 2)
 Traceback (most recent call last):
-NameError: name 'divided' is not defined
+TypeError: matrix must be a matrix (list of lists) of integers/floats
 
->>> divided([[1, 2], ["3", 4]], 2)
+>>> matrix_divided([[1, 2], ["3", 4]], 2)
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-NameError: name 'divided' is not defined
+TypeError: matrix must be a matrix (list of lists) of integers/floats
 
->>> divided([[1, 2], [3, 4, 5]], 2)
+>>> matrix_divided([[1, 2], [3, 4, 5]], 2)
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-NameError: name 'divided' is not defined
+TypeError: Each row of the matrix must have the same size
 
->>> divided([[1, 2], [3, 4]], "2")
+>>> matrix_divided([[1, 2], [3, 4]], "2")
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-NameError: name 'divided' is not defined
+TypeError: div must be a number
