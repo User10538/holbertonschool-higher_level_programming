@@ -33,3 +33,4 @@ def text_indentation(text):
         if i in {'.', '?', ':'}:
             print()
             skip_space = True
+    print()
