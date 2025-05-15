@@ -22,7 +22,13 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
+    skip_space = False
     for i in text:
+        if skip_space and i == '':
+            continue
+            skip_space = False
+
         print("{}".format(i), end="")
         if i in {',' , '?', ':'}:
             print("\n")
+            skip_space = True
