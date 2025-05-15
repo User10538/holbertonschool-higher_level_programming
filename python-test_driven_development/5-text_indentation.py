@@ -23,13 +23,16 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    skip_space = False
-    for i in text:
-        if skip_space and i == ' ':
-            continue
-        skip_space = False
+    result = ""
 
-        print(i, end="")
-        if i in {'.', '?', ':'}:
+    for i in text:
+        result += i
+
+        if i in ".?:":
+            print(result.strip())
             print()
-            skip_space = True
+            print()
+            result = ""
+
+    if result.strip():
+        print(result.strip())
