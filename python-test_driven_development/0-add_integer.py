@@ -17,7 +17,6 @@ def add_integer(a, b=98):
     TypeError: if a or b is nto a float or integer
     """
 
-    
     result = None
     result = int(a) + int(b)
     if not isinstance(a, (float, int)):
