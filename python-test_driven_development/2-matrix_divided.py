@@ -1,4 +1,11 @@
 #!/usr/bin/python3
+
+"""
+This module is to divide two integers.
+
+"""
+
+
 def matrix_divided(matrix, div):
     """
     The function divide matrix and div:
