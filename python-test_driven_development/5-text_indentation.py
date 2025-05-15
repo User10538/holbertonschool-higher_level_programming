@@ -29,7 +29,7 @@ def text_indentation(text):
             continue
         skip_space = False
 
-        print("{}".format(i), end="")
+        print(i, end="")
         if i in {',', '?', ':'}:
             print("\n")
             skip_space = True
