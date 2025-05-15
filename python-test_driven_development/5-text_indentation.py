@@ -25,9 +25,9 @@ def text_indentation(text):
 
     skip_space = False
     for i in text:
-        if skip_space and i == '':
+        if skip_space and i == ' ':
             continue
-            skip_space = False
+        skip_space = False
 
         print("{}".format(i), end="")
         if i in {',', '?', ':'}:
