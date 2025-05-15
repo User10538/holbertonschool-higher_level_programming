@@ -36,9 +36,9 @@ def matrix_divided(matrix, div):
         raise TypeError("div must be a number")
     for row in matrix:
         new_row = []
-    for i in row:
-        new_row.append(round(i/div, 2))
-    result.append(new_row)
+        for i in row:
+            new_row.append(round(i/div, 2))
+        result.append(new_row)
 
     if div == 0:
         raise ZeroDivisionError("division by zero")

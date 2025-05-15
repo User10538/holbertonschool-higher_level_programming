@@ -1,7 +1,8 @@
->>> matrix_divided(2, 1)
-2
+First import ``matrix_divided`` from the ``2-matrix_divided`` file:
 
->>> matrix_divided([[6, 9], [12, 15]], 3)
+>>> divided = __import__('2-matrix_divided').matrix_divided
+
+>>> divided([[6, 9], [12, 15]], 3)
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
   File "/root/holbertonschool-higher_level_programming/python-test_driven_development/2-matrix_divided.py", line 32, in matrix_divided
