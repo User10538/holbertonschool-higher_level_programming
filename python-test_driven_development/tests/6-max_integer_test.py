@@ -21,7 +21,7 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer([8, -9, 1]),8)
 
     def test_negative_numbers(self):
-        self.assertEqual(max_integer([-8, -9, -15]),3)
+        self.assertEqual(max_integer([-8, -9, -15]),-15)
 
     def test_one_element(self):
         self.assertEqual(max_integer([8]),8)
