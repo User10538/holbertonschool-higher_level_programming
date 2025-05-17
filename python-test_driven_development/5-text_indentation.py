@@ -22,13 +22,11 @@ def text_indentation(text):
 
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-
+    
     start = 0
     for i, c in enumerate(text):
         if c in ".?:":
-            print(text[start:i + 1].strip())
+            print(text[start:i + 1].strip(), end="\n\n")
             start = i + 1
-            while start < len(text) and text[start] == ' ':
-                start += 1
     if start < len(text):
-        print(text[start:].strip())
+        print(text[start:].strip(), end="")
