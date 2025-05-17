@@ -3,8 +3,10 @@
 >>> text_indentation("This is text")
 This is text
 
->>> text_indentation()
-TypeError: text_indentation() missing 1 required positional argument: 'text'
+>>> text_indentation("Hello. How are you?")
+Hello.
+
+How are you?
 
 >>> text_indentation(52)
 Traceback (most recent call last):
