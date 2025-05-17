@@ -12,4 +12,5 @@ TypeError: text must be a string
 
 >>> text_indentation("Hello. How are you")
 Hello.
+
 How are you
