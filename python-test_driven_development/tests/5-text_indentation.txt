@@ -5,8 +5,9 @@ This is text
 
 >>> text_indentation("Hello. How are you?")
 Hello.
-
+<BLANKLINE>
 How are you?
+<BLANKLINE>
 
 >>> text_indentation(52)
 Traceback (most recent call last):
