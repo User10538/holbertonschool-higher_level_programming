@@ -23,18 +23,15 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    i = 0
-    length = len(text)
-    while i < length:
-        line = ''
-        while i < length and text[i] not in ".?:":
-            line += text[i]
-            i += 1
+    result = ""
 
-    print(line.strip())
-    print()
-    print()
+    for i in text:
+        result += i
 
-    while i < length and text[i] == ' ':
-        i += 1
-        
+        if i in ".?:":
+            print(result.strip())
+            print()
+            result = ""
+
+    if result.strip():
+        print(result.strip())
