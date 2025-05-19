@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Write class Square that defines a square by 
+Write class Square that defines a square by
 Private instance attribute: size
 Instantiation with size
 """
@@ -13,4 +13,4 @@ class Square:
     """
 
     def __init__(self, size):
-        self.__size = size # this is private attrribute
+        self.__size = size  # this is private attrribute
