@@ -1,14 +1,17 @@
 #!/usr/bin/python3
 """
 Write an class Rectangle that defines a rectangle with width and height
-Add area and perimetre
+Add print() and str() should print the rectangle with the character #:
+if width or height is equal to 0, return an empty string
 """
 
 
 class Rectangle:
     """
-    Write an class Rectangle that defines a rectangle with width and height
-    Add area and perimetre
+    Write an class Rectangle that defines a rectangle with width and height.
+    Add print() and str() should print the rectangle with the character #:
+    if width or height is equal to 0, return an empty string
+
 
     """
 
@@ -47,3 +50,11 @@ class Rectangle:
         if (self.width == 0 or self.height == 0):
             return 0
         return 2 * self.width + 2 * self.height
+
+    def __str__(self):
+        if self.width == 0 or self.height == 0:
+            return ""
+        lines = []
+        for i in range(self.width):
+            lines.append('#' * self.height)
+        return "\n".join(lines)
