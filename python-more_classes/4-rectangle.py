@@ -58,3 +58,6 @@ class Rectangle:
         for i in range(self.height):
             lines.append('#' * self.width)
         return "\n".join(lines)
+
+    def __repr__(self):
+        return f"({self.height}, {self.width})"
