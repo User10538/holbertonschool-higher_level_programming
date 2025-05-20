@@ -95,6 +95,7 @@ class Rectangle:
         else:
             return rect_2
 
+    @classmethod
     def square(cls, size=0):
         # calls the constructor with both width
         # and height equal to size
