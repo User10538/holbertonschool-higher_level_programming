@@ -60,4 +60,4 @@ class Rectangle:
         return "\n".join(lines)
 
     def __repr__(self):
-        return f"({self.height}, {self.width})"
+        return f"Rectangle({self.height}, {self.width})"
