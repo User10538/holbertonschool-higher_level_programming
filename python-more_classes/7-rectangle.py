@@ -59,10 +59,20 @@ class Rectangle:
     def __str__(self):
         if self.width == 0 or self.height == 0:
             return ""
+        # Convert the class or instance-level print_symbol to a string
+        # This ensures that even if it's a number or other
+        # type, it will work correctly
+        symbol = str(self.print_symbol)
+
         lines = []
         for i in range(self.height):
-            lines.append('#' * self.width)
-        return "\n".join(lines)
+            # Each line is made by repeating the symbol
+            # for the width of the rectangle
+            line = symbol * self.width
+            lines.append(line)
+        rectangle_string = "\n".join(lines)
+
+        return rectangle_string
 
     def __repr__(self):
         return f"Rectangle({self.width}, {self.height})"
