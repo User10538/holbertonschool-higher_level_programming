@@ -1,1 +1,9 @@
->>> integer_validator = __import__('7-base_geometry').integer_validator
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+>>> basegeometry = BaseGeometry()
+>>> print(basegeometry)
+<7-base_geometry.BaseGeometry object at 0x7fed26052eb0>
+
+>>> basegeometry = BaseGeometry()
+>>>print(type(basegeometry))
+<class '7-base_geometry.BaseGeometry'>
