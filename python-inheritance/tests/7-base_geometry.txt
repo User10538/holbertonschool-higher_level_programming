@@ -1,14 +1,16 @@
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
->>> basegeometry = BaseGeometry()
->>> print(basegeometry)
+>>> bg = BaseGeometry()
+>>> print(bg)
 <7-base_geometry.BaseGeometry object at 0x7fed26052eb0>
 
->>> basegeometry = BaseGeometry()
->>>print(type(basegeometry))
+>>> bg = BaseGeometry()
+>>>print(type(bg))
 <class '7-base_geometry.BaseGeometry'>
 
->>> basegeometry = BaseGeometry()
->>> basegeometry.integer_validator("age", 35)
->>> print("Passed: Valid integer")
-Passed: Valid integer
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", 1)
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator(“age”)
+SyntaxError: invalid character in identifier
