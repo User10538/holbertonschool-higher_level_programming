@@ -1,0 +1,25 @@
+>>> MyList = __import__('1-my_list').MyList
+
+>>> my_list = MyList()
+>>> my_list.append(8)
+>>> my_list.append(6)
+>>> my_list.append(4)
+>>> print(my_list)
+[8, 6, 4]
+
+>>> my_list.print_sorted()
+[4, 6, 8]
+
+>>> print(my_list)
+[8, 6, 4]
+
+>>> my_list.append(2)
+>>> my_list.append(4)
+>>> print(my_list)
+[8, 6, 4, 2, 4]
+
+>>> empty = MyList()
+>>> print(empty)
+[]
+>>> empty.print_sorted()
+[]
