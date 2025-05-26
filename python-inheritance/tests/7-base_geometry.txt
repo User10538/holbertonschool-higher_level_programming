@@ -7,3 +7,8 @@
 >>> basegeometry = BaseGeometry()
 >>>print(type(basegeometry))
 <class '7-base_geometry.BaseGeometry'>
+
+>>> basegeometry = BaseGeometry()
+>>> basegeometry.integer_validator("age", 35)
+>>> print("Passed: Valid integer")
+Passed: Valid integer
