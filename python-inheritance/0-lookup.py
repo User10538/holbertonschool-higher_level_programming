@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Write a function that returns the list of available
+Returns a list of available attributes and methods of an object.
 
 Args:
     obj: The object to inspect.
