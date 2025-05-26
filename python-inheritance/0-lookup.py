@@ -1,8 +1,12 @@
 #!/usr/bin/python3
 """
 Write a function that returns the list of available
-attributes and methods of an object:
-Returns a list object
+
+Args:
+    obj: The object to inspect.
+
+Returns:
+        A list of strings representing the object's attributes and methods.
 """
 
 
