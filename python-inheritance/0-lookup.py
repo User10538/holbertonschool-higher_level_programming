@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""
+
+def lookup(obj):
+    """
 Returns a list of available attributes and methods of an object.
 
 Args:
@@ -8,7 +10,4 @@ Args:
 Returns:
         A list of strings representing the object's attributes and methods.
 """
-
-
-def lookup(obj):
     return dir(obj)
