@@ -6,7 +6,7 @@ all the elements of the list will be of type int
 """
 
 
-class MyList:
+class MyList(list):
     """
     print out the list in ascending order
     """
