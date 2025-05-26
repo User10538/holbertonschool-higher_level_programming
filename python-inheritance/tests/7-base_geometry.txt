@@ -1,0 +1,1 @@
+>>> integer_validator = __import__('7-base_geometry').integer_validator
