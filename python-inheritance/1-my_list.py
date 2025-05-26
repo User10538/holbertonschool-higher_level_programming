@@ -6,8 +6,13 @@ all the elements of the list will be of type int
 """
 
 
-def print_sorted(self): 
+class MyList:
     """
-    Prints the list, but sorted (ascending sort)   
+    print out the list in ascending order
     """
-    print sorted(self)
+
+    def print_sorted(self):
+        """
+        Prints the list, but sorted (ascending sort)
+        """
+        print(sorted(self))
