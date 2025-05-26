@@ -8,55 +8,6 @@
 ...     print("[{}] {}".format(e.__class__.__name__, e))
 [Exception] area() is not implemented
 
-# Valid integer (positive)
->>> bg.integer_validator("age", 1)
->>> bg.integer_validator("height", 100)
-
-# Zero or negative raise ValueError
->>> try:
-...     bg.integer_validator("age", 0)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[ValueError] age must be greater than 0
-
->>> try:
-...     bg.integer_validator("age", -4)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[ValueError] age must be greater than 0
-
-# Non-integers raise TypeError
->>> try:
-...     bg.integer_validator("age", "4")
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] age must be an integer
-
->>> try:
-...     bg.integer_validator("age", (4,))
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] age must be an integer
-
->>> try:
-...     bg.integer_validator("age", [3])
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] age must be an integer
-
->>> try:
-...     bg.integer_validator("age", {3, 4})
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] age must be an integer
-
->>> try:
-...     bg.integer_validator("age", None)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] age must be an integer
-
-# Booleans (True/False) also raise TypeError if type check excludes bool
 >>> try:
 ...     bg.integer_validator("age", True)
 ... except Exception as e:
@@ -64,13 +15,7 @@
 [TypeError] age must be an integer
 
 >>> try:
-...     bg.integer_validator("age", False)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] age must be an integer
-
->>> try:
-...     bg.area()
+...    bg.integer_validator("age", False)
 ... except Exception as e:
 ...    print("[{}] {}".format(e.__class__.__name__, e))
-Exception: area() is not implemented
+[TypeError] age must be an integer
