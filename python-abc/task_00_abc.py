@@ -6,6 +6,7 @@ class Animal(ABC):
     Animal inherits from ABC to mark it as abstract
     has two subclass, Dog and Cat
     """
+    @abstractmethod
     def sound(self):
         pass
 
