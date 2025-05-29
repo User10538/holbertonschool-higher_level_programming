@@ -83,7 +83,7 @@ class Rectangle:
         # Decrement on instantiation
         Rectangle.number_of_instances = Rectangle.number_of_instances - 1
 
-    # This is a static method
+    # This is a static method - use @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
