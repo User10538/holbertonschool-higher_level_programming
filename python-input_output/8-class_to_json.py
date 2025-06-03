@@ -14,4 +14,4 @@ def class_to_json(obj):
     list, dictionary, string, integer and boolean
     You are not allowed to import any module
     """
-    return obj.__dir__
+    return obj.__dict__
