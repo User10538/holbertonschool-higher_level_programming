@@ -19,6 +19,7 @@ try:
 except FileNotFoundError:
     items = []
 
+items.extend(sys.argv[1:])
 
 with open(filename, "w", encoding="utf-8") as f:
     json.dump(items, f)
