@@ -26,4 +26,7 @@ class Student():
         self.age = age
 
     def to_json(self, attrs=None):
-        return self.__dict__
+        if isinstance(attrs, list) and all(isinstance(a, str) for a in attrs):
+            return {key: self.__dict__[key] for key in attrs if key in self.__dict__}
+        else:
+            return self.__dict__
