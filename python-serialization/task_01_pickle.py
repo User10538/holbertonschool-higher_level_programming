@@ -5,6 +5,8 @@ class CustomObject:
 
     def __init__(self, age, name, is_student):
         self.age = age
+        self.name = name
+        self.is_student = is_student
 
 
     def display(self):
