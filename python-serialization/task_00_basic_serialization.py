@@ -10,6 +10,5 @@ def serialize_and_save_to_file(data, filename):
 def load_and_deserialize(filename):
     # Your code here to load and deserialize data from the specified file
     with open(filename, "rb") as f:
-        loaded_data = pickle.load(f)
-        print(loaded_data)
+        return pickle.load(f)
     pass
