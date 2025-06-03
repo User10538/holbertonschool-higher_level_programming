@@ -21,6 +21,6 @@ class CustomObject:
         try:
             with open(filename, "rb") as f:
                 return pickle.load(f)
-        except(pickle.PickleError):
+        except(EOFError, pickle.UnpicklingError):
             print("File is corrupted.")
         return
