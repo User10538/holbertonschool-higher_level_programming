@@ -22,14 +22,13 @@ class Student():
         self.last_name = last_name
         self.age = age
 
-    
     def to_json(self, attrs=None):
         if isinstance(attrs, list) and all(isinstance(a, str) for a in attrs):
             return {key: self.__dict__[key]
                     for key in attrs if key in self.__dict__}
         else:
             return self.__dict__
-    
+
     def reload_from_json(self, json):
         for key in json:
             self.__dict__[key] = json[key]
