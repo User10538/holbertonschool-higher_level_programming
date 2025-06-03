@@ -12,4 +12,4 @@ def write_file(filename="", text=""):
     Don’t need to manage file permission or file doesn't exist exceptions.
     """
     with open(filename, "w", encoding="utf-8") as f:
-        f.write(text)
+        return f.write(text)
