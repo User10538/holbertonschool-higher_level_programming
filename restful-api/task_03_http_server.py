@@ -26,6 +26,14 @@ class MySimpleHandle(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
             self.wfile.write(b"OK")
+        
+        elif self.path == "/info":
+             dataSet = {"version": "1.0", "description": "A simple API built with http.server"}
+             jsonData = json.dumps(dataSet).encode('utf-8')
+             self.send_response(200)
+             self.send_header('Content-type', 'application/json')
+             self.end_headers()
+             self.wfile.write(jsonData)
 
         else:
             self.send_response(404)
