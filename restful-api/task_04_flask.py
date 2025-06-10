@@ -17,7 +17,7 @@ def data():
 
 @app.route('/status')
 def status():
-    return 'OK'
+    return jsonify({"status": "OK"}), 200
 
 @app.route('/users/<username>')
 def GetUsers(username):
