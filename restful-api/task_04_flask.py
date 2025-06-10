@@ -40,7 +40,7 @@ def AddUsers():
         return jsonify({"error": "Missing username"}), 400
     
     if username in users:
-        return jsonify({"error": "User already exist"}), 400
+        return jsonify({"error": "User already exists"}), 400
     
     try:
         age = int(data.get("age", 0))
@@ -51,6 +51,9 @@ def AddUsers():
                        "name": data.get("name", ""), 
                        "age": data.get("age", age),
                        "city": data.get("city", "")}
+    
+    print("Returning user data:", users[username]) 
+
     return jsonify(users[username]), 200
 
 if __name__ == "__main__": 
