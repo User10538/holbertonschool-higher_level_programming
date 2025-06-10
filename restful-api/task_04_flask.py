@@ -47,16 +47,15 @@ def AddUsers():
     except (ValueError, TypeError):
         age = 0
 
-    users[username] = {
+
+    #print("Returning user data:", users[username]) 
+
+    return jsonify({
         "username": username,
         "name": data.get("name", ""),
-        "age": age,  # use parsed int value
+        "age": age,
         "city": data.get("city", "")
-        }
-    
-    print("Returning user data:", users[username]) 
-
-    return jsonify(users[username]), 200
+    }), 200
 
 if __name__ == "__main__": 
     app.run(host='0.0.0.0', port=5000)
