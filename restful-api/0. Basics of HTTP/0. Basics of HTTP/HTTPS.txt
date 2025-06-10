@@ -1,0 +1,15 @@
+Differentiating HTTP and HTTPS:
+
+Read the provided resources to understand the basic differences between HTTP and HTTPS.
+Jot down the main differences, focusing on security aspects.
+Optional: Use a packet sniffer tool like Wireshark to observe the traffic of an HTTP and an HTTPS request (Make sure you have the appropriate permissions).
+
+Understanding HTTP Structure:
+
+Visit a simple website, right-click, and choose “Inspect” or “Inspect Element”. Navigate to the “Network” tab. This shows all network requests made by the page.
+Reload the page and observe the first request. Click on it. Explore the “Headers” section to understand the structure of HTTP requests and responses. You’ll see methods, paths, status codes, headers, and more.
+
+Exploring HTTP Methods and Status Codes:
+
+Based on the resources provided, make a list of at least four common HTTP methods and explain when each would be used.
+Make another list of five common HTTP status codes. For each status code, provide a brief description and a scenario where it might be encountered.
