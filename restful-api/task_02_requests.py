@@ -17,5 +17,11 @@ def fetch_and_print_posts():
         print(f"Status code print is missing or incorrect.")
 
 def fetch_and_save_posts():
-    r = requests.get()
-    r.json()
+    response = requests.get(url)
+    print("Status Code: 200")
+
+    if response.status_code == 200:
+        data = response.json()
+
+    with open(data, "w", encoding="utf-8") as f:
+        json.dump(f)
