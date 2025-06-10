@@ -17,7 +17,7 @@ def data():
 
 @app.route('/status')
 def status():
-    return jsonify({"OK"}), 200
+    return 'OK'
 
 @app.route('/users/<username>')
 def GetUsers(username):
@@ -37,7 +37,7 @@ def AddUsers():
         return jsonify({"error": "Invalid or missing JSON"}), 400
 
     if not username:
-        return jsonify({"error": "Missing username"}), 400
+        return jsonify({"error": "Username is required"}), 400
     
     if username in users:
         return jsonify({"error": "User already exists"}), 400
@@ -47,10 +47,12 @@ def AddUsers():
     except (ValueError, TypeError):
         age = 0
 
-    users[username] = {"username" : username,
-                       "name": data.get("name", ""), 
-                       "age": data.get("age", age),
-                       "city": data.get("city", "")}
+    users[username] = {
+        "username": username,
+        "name": data.get("name", ""),
+        "age": age,  # use parsed int value
+        "city": data.get("city", "")
+        }
     
     print("Returning user data:", users[username]) 
 
