@@ -31,12 +31,12 @@ def AddUsers():
     #data = {"username": "john", "name": "John", "age": 30, "city": "New York"}
     data = request.get_json()
 
-    username = data['username']
+    username = data.get("username")
 
     users[username] = {"name": data.get("name", ""), 
                        "age": data.get("age", 0),
                        "city": data.get("city", "")}
-    return jsonify(users[username])
+    return jsonify(users[username]), 200
 
 if __name__ == "__main__": 
     app.run(host='0.0.0.0', port=5000)
