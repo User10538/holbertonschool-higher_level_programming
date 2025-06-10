@@ -23,7 +23,7 @@ def fetch_and_save_posts():
         print("Status Code: 200")
         data = response.json()
 
-    with open('posts.csv', "w", newline='', encoding="utf-8") as f:
-        writeintoCSV = csv.DictWriter(f, fieldnames=['userId', 'id', 'title', 'body'])
-        writeintoCSV.writeheader()
-        writeintoCSV.writerows(data)
+        with open('posts.csv', "w", newline='', encoding="utf-8") as f:
+            writeintoCSV = csv.DictWriter(f, fieldnames=['userId', 'id', 'title', 'body'])
+            writeintoCSV.writeheader()
+            writeintoCSV.writerows(data)
