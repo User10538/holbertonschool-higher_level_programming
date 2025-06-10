@@ -33,15 +33,23 @@ def AddUsers():
 
     username = data.get("username")
 
+    if not data:
+        return jsonify({"error": "Invalid or missing JSON"}), 400
+
     if not username:
         return jsonify({"error": "Missing username"}), 400
     
     if username in users:
         return jsonify({"error": "User already exist"}), 400
+    
+    try:
+        age = int(data.get("age", 0))
+    except (ValueError, TypeError):
+        age = 0
 
     users[username] = {"username" : username,
                        "name": data.get("name", ""), 
-                       "age": data.get("age", 0),
+                       "age": data.get("age", age),
                        "city": data.get("city", "")}
     return jsonify(users[username]), 200
 
