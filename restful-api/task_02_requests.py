@@ -7,7 +7,7 @@ url = "https://jsonplaceholder.typicode.com/posts"
 
 def fetch_and_print_posts():
     response = requests.get(url)
-    print("Status code: 200")
+    print("Status Code: 200")
 
     if response.status_code == 200:
         data = response.json()
