@@ -26,36 +26,24 @@ def GetUsers(username):
     else:
         return jsonify({"error": "User not found"}), 404
 
-@app.route('/add_user', methods = ['POST'])
-def AddUsers():
-    #data = {"username": "john", "name": "John", "age": 30, "city": "New York"}
+@app.route('/add_user', methods=['POST'])
+def add_user():
     data = request.get_json()
-
     username = data.get("username")
-
-    if not data:
-        return jsonify({"error": "Invalid or missing JSON"}), 400
-
     if not username:
-        return jsonify({"error": "Username is required"}), 400
-    
-    if username in users:
+        return jsonify({"error":"Username is required"}), 400
+    if 'username' not in data:
+        return jsonify({"error": "User not found"}), 201
+    if username is users:
         return jsonify({"error": "User already exists"}), 400
-    
-    try:
-        age = int(data.get("age", 0))
-    except (ValueError, TypeError):
-        age = 0
 
-
-    #print("Returning user data:", users[username]) 
-
-    return jsonify({
+    users[username] = {
         "username": username,
         "name": data.get("name", ""),
-        "age": age,
+        "age": data.get("age", 0),
         "city": data.get("city", "")
-    }), 200
+    }
+    return jsonify({"message": "User added", "user": users[username]}), 201
 
 if __name__ == "__main__": 
     app.run(host='0.0.0.0', port=5000)
