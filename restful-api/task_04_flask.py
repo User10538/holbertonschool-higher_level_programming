@@ -3,7 +3,8 @@ import json, requests
 from flask import Flask, jsonify
 app = Flask(__name__)
 
-users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"}}
+#users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"}}
+users = {}
 
 @app.route('/')
 def home():
@@ -11,7 +12,8 @@ def home():
 
 @app.route('/data')
 def data():
-    return jsonify(users)
+    usernames = list(users.keys())
+    return jsonify(usernames), 200
 
 @app.route('/status')
 def status():
@@ -22,7 +24,7 @@ def GetUsers(username):
     if username in users:
         return jsonify(users[username])
     else:
-        return 'error: User not found'
+        return jsonify({"error": "User not found"})
 
 @app.route('/add_user', methods = ['POST'])
 def AddUsers():
@@ -36,8 +38,5 @@ def AddUsers():
                        "city": data.get("city", "")}
     return jsonify(users[username])
 
-
-    
-
 if __name__ == "__main__": 
-    app.run(port=8000)
+    app.run(host='0.0.0.0', port=5000)
