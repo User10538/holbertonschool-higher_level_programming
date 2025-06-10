@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-import json, requests
-from flask import Flask, jsonify
+import json
+from flask import Flask, jsonify, request
 app = Flask(__name__)
 
 #users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"}}
@@ -29,7 +29,7 @@ def GetUsers(username):
 @app.route('/add_user', methods = ['POST'])
 def AddUsers():
     #data = {"username": "john", "name": "John", "age": 30, "city": "New York"}
-    data = requests.get_json()
+    data = request.get_json()
 
     username = data['username']
 
