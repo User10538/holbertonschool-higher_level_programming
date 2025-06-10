@@ -14,7 +14,7 @@ def fetch_and_print_posts():
         for post in data:
             print(post['title'])
     else: 
-        print(f"Failed to fetch post. Status code: {response.status_code}")
+        print(f"Status code print is missing or incorrect.")
 
 def fetch_and_save_posts():
     r = requests.get()
