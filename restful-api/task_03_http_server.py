@@ -20,11 +20,18 @@ class MySimpleHandle(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
             self.wfile.write(b"Hello, this is a simple API!")
+
+        elif self.path == "/status":
+            self.send_response(200)
+            self.send_header('Content-type', 'text/plain')
+            self.end_headers()
+            self.wfile.write(b"OK")
+
         else:
             self.send_response(404)
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
-            self.wfile.write(b"Endpoint not found.")
+            self.wfile.write(b"FAIL - Status endpoint should return status 200")
     
 
 def run(server_class=HTTPServer, handler_class=MySimpleHandle):
