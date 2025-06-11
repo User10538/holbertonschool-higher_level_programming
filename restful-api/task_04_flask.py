@@ -26,7 +26,12 @@ def GetUsers(username):
     else:
         return jsonify({"error": "User not found"}), 404
 
+
 @app.route('/add_user', methods=['POST'])
+    # -- Usage example --
+    # curl -X POST [URL] /
+    #    -H "Content-Type: application/json" /
+    #    -d '{"key1":"value1","key2":"value2"}'
 def add_user():
     data = request.get_json()
     username = data.get("username")
