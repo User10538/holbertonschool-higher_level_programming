@@ -10,6 +10,9 @@ from datetime import timedelta
 # Flask setup
 app = Flask(__name__)
 auth = HTTPBasicAuth()
+# Fix for unauthorized error JSON response
+auth.error_handler(lambda status: (jsonify({"error": "Unauthorized access"}), status))
+
 app.config['JWT_SECRET_KEY'] = 'super-secret-key'  # Use env var in production!
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=1)
 jwt = JWTManager(app)
@@ -28,8 +31,8 @@ def verify_password(username, password):
     return None
 
 @auth.error_handler
-def unauthorized():
-    return jsonify({"error": "Unauthorized access"}), 401
+def handle_auth_error(status):
+    return jsonify({"error": "Unauthorized access"}), status
 
 # Route: Basic Auth Protected
 @app.route('/basic-protected')
