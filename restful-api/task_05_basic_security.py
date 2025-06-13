@@ -93,4 +93,4 @@ def handle_needs_fresh_token_error(jwt_header, jwt_payload):
 
 # Entry point
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
