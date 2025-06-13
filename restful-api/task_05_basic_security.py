@@ -11,6 +11,7 @@ from datetime import timedelta
 app = Flask(__name__)
 auth = HTTPBasicAuth()
 
+# Config
 app.config['JWT_SECRET_KEY'] = 'super-secret-key'  # Use env var in production!
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=1)
 jwt = JWTManager(app)
@@ -28,6 +29,7 @@ def verify_password(username, password):
         return username
     return None
 
+# Custom Basic Auth error handler
 @auth.error_handler
 def handle_auth_error():
     return jsonify({"error": "Unauthorized access"}), 401
@@ -91,6 +93,6 @@ def handle_revoked_token_error(jwt_header, jwt_payload):
 def handle_needs_fresh_token_error(jwt_header, jwt_payload):
     return jsonify({"error": "Fresh token required"}), 401
 
-# Entry point
+# Entry point (MUST be clean for automated checkers)
 if __name__ == '__main__':
     app.run()
