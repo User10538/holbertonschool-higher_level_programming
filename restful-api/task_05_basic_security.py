@@ -11,8 +11,8 @@ from datetime import timedelta
 app = Flask(__name__)
 auth = HTTPBasicAuth()
 
-# JWT configuration
-app.config['JWT_SECRET_KEY'] = 'super-secret-key'  # Use env var in production!
+# JWT setup
+app.config['JWT_SECRET_KEY'] = 'super-secret-key'  # In production, use env var
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=1)
 jwt = JWTManager(app)
 
@@ -33,13 +33,13 @@ def verify_password(username, password):
 def handle_auth_error():
     return jsonify({"error": "Unauthorized access"}), 401
 
-# Route: Basic Auth Protected
+# Basic Auth protected route
 @app.route('/basic-protected')
 @auth.login_required
 def basic_protected():
-    return "Basic Auth: Access Granted"
+    return jsonify(message="Basic Auth: Access Granted")
 
-# Route: JWT Login
+# JWT login route
 @app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
@@ -55,23 +55,23 @@ def login():
     })
     return jsonify(access_token=access_token)
 
-# Route: JWT Protected
+# JWT protected route
 @app.route('/jwt-protected')
 @jwt_required()
 def jwt_protected():
     identity = get_jwt_identity()
-    return f"JWT Auth: Access Granted for {identity['username']}"
+    return jsonify(message=f"JWT Auth: Access Granted for {identity['username']}")
 
-# Route: Admin-only
+# Admin-only route
 @app.route('/admin-only')
 @jwt_required()
 def admin_only():
     identity = get_jwt_identity()
     if identity['role'] != 'admin':
         return jsonify({"error": "Admin access required"}), 403
-    return "Admin Access: Granted"
+    return jsonify(message="Admin Access: Granted")
 
-# JWT Error Handlers
+# JWT error handlers
 @jwt.unauthorized_loader
 def handle_unauthorized_error(err):
     return jsonify({"error": "Missing or invalid token"}), 401
@@ -92,6 +92,6 @@ def handle_revoked_token_error(jwt_header, jwt_payload):
 def handle_needs_fresh_token_error(jwt_header, jwt_payload):
     return jsonify({"error": "Fresh token required"}), 401
 
-# Entry point (no arguments in app.run!)
+# Entry point
 if __name__ == '__main__':
     app.run()
