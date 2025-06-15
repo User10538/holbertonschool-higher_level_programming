@@ -32,7 +32,7 @@ def verify_password(username, password):
 @app.route('/basic-protected')
 @auth.login_required
 def basic_protected():
-    return "Basic Auth: Access Granted"
+    return jsonify(message="Basic Auth: Access Granted")
 
 # Route: JWT Login
 @app.route('/login', methods=['POST'])
@@ -55,7 +55,7 @@ def login():
 @jwt_required()
 def jwt_protected():
     identity = get_jwt_identity()
-    return f"JWT Auth: Access Granted for {identity['username']}"
+    return jsonify(message="JWT Auth: Access Granted")
 
 # Route: Admin-only
 @app.route('/admin-only')
