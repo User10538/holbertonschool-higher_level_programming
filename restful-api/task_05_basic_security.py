@@ -21,11 +21,11 @@ users = {
     "admin1": {"username": "admin1", "password": generate_password_hash("password"), "role": "admin"}
 }
 
-# Basic Auth verification
 @auth.verify_password
 def verify_password(username, password):
-    if username in users and check_password_hash(users[username]['password'], password):
-        return username
+    user = users.get(username)
+    if user and check_password_hash(user['password'], password):
+        return user  # Return the user dict, not just username
     return None
 
 # Route: Basic Auth Protected
