@@ -43,18 +43,17 @@ def basic_protected():
 # Route: JWT Login
 @app.route('/login', methods=['POST'])
 def login():
-    data = request.get_json()
-    username = data.get("username")
-    password = data.get("password")
+    if not request.is_json:
+        return jsonify({"message": "Missing JSON in request"}), 400
+    
+    username = request.json.get("username")
+    password = request.json.get("password")
+    user = users.get(username)
 
-    if username not in users or not check_password_hash(users[username]['password'], password):
-        return jsonify({"error": "Invalid credentials"}), 401
-
-    access_token = create_access_token(identity={
-        "username": username,
-        "role": users[username]['role']
-    })
-    return jsonify(access_token=access_token)
+    if not user or not check_password_hash(user["password"], password):
+        return jsonify({"message": "Bad username or password"}), 401
+    access_token = create_access_token(identity={"username": username, "role": user["role"]})
+    return jsonify(access_token = access_token)
 
 # Route: JWT Protected
 @app.route('/jwt-protected')
