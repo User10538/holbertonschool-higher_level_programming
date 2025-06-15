@@ -56,11 +56,10 @@ def login():
     return jsonify(access_token = access_token)
 
 # Route: JWT Protected
-@app.route('/jwt-protected')
+@app.route('/jwt-protected', methods=['GET'])
 @jwt_required()
-def jwt_protected():
-    identity = get_jwt_identity()
-    return f"JWT Auth: Access Granted for {identity['username']}"
+def jwtprotected():
+    return "JWT Auth: Access Granted", 200
 
 # Route: Admin-only
 @app.route('/admin-only')
