@@ -1,4 +1,3 @@
-
 from flask import Flask, jsonify, request
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -21,11 +20,11 @@ users = {
     "admin1": {"username": "admin1", "password": generate_password_hash("password"), "role": "admin"}
 }
 
+# Basic Auth verification
 @auth.verify_password
 def verify_password(username, password):
-    user = users.get(username)
-    if user and check_password_hash(user['password'], password):
-        return user  # Return the user dict, not just username
+    if username in users and check_password_hash(users[username]['password'], password):
+        return username
     return None
 
 # Route: Basic Auth Protected
@@ -64,7 +63,7 @@ def admin_only():
     identity = get_jwt_identity()
     if identity['role'] != 'admin':
         return jsonify({"error": "Admin access required"}), 403
-    return jsonify(message="Admin Access: Granted")
+    return "Admin Access: Granted"
 
 # JWT Error Handlers
 @jwt.unauthorized_loader
