@@ -1,3 +1,4 @@
+this is my code, your code and mine look the same
 from flask import Flask, jsonify, request
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -37,7 +38,7 @@ def handle_auth_error():
 @app.route('/basic-protected')
 @auth.login_required
 def basic_protected():
-    return jsonify(message="Basic Auth: Access Granted"), 200
+    return "Basic Auth: Access Granted"
 
 # Route: JWT Login
 @app.route('/login', methods=['POST'])
