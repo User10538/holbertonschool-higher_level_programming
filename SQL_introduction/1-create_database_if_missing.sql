@@ -1,2 +1,2 @@
 -- This script lists all databases
-CREATE DATABASES IF NOT EXISTS hbtn_0c_0;
+CREATE DATABASE IF NOT EXISTS hbtn_0c_0;
