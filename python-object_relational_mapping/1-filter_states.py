@@ -4,6 +4,7 @@
 Your script should take 3 arguments: mysql username, mysql password
 and database name (no argument validation needed)
 You must use the module MySQLdb (import MySQLdb)
+This is to filter states
 """
 import sys
 import MySQLdb
