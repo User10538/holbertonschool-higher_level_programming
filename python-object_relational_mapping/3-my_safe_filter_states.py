@@ -25,10 +25,7 @@ if __name__ == "__main__":
     # Sanitize single quotes in input (very basic protection)
     searched_safe = searched.replace("'", "''")
 
-    # Proper query construction with format()
-    query = ("SELECT * FROM states "
-             "WHERE BINARY name = '{}' ORDER BY id ASC")
-
+    query = "SELECT * FROM states WHERE BINARY name = %s ORDER BY id ASC"
     cur.execute(query, (searched,))
 
     for row in cur.fetchall():
