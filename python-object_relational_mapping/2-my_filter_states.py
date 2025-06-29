@@ -28,7 +28,7 @@ if __name__ == "__main__":
     # Proper query construction with format()
     query = (
         "SELECT * FROM states "
-        "WHERE name = '{}' ORDER BY id ASC"
+        "WHERE BINARY name = '{}' ORDER BY id ASC"
     ).format(searched_safe)
 
     cur.execute(query)
