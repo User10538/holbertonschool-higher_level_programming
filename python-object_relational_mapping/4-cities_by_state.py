@@ -26,7 +26,8 @@ if __name__ == "__main__":
     )
     cur = db.cursor()
 
-    # Execute single query to get cities and their states, ordered by city id ascending
+    # Execute single query to get cities and their states,
+    # ordered by city id ascending
     query = """
         SELECT cities.id, cities.name, states.name
         FROM cities
