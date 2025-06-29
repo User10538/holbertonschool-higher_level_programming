@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
 Lists all values in the `states` table where name matches the argument.
-Takes 4 arguments: mysql username, mysql password, database name, and state name.
+Takes 4 arguments: mysql username, mysql password,
+database name, and state name.
 """
 
 import sys
