@@ -27,9 +27,9 @@ if __name__ == "__main__":
 
     # Proper query construction with format()
     query = ("SELECT * FROM states "
-             "WHERE BINARY name = '{}' ORDER BY id ASC"), (searched_safe,)
+             "WHERE BINARY name = '{}' ORDER BY id ASC")
 
-    cur.execute(query)
+    cur.execute(query, (searched,))
 
     for row in cur.fetchall():
         print(row)
