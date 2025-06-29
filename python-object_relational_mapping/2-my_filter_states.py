@@ -1,29 +1,39 @@
 #!/usr/bin/python3
 """
-
-Your script should take 3 arguments: mysql username, mysql password
-and database name (no argument validation needed)
-You must use the module MySQLdb (import MySQLdb)
-This is to filter states
+Lists all values in the `states` table where name matches the argument.
+Takes 4 arguments: mysql username, mysql password, database name, and state name.
 """
+
 import sys
 import MySQLdb
 
 if __name__ == "__main__":
-
     username = sys.argv[1]
     password = sys.argv[2]
-    name = sys.argv[3]
+    db_name = sys.argv[3]
     searched = sys.argv[4]
 
-    conn = MySQLdb.connect(host="localhost", port=3306, user=username,
-                           passwd=password, db=name, charset="utf8")
+    # Establish connection
+    conn = MySQLdb.connect(
+        host="localhost", port=3306,
+        user=username, passwd=password,
+        db=db_name, charset="utf8"
+    )
     cur = conn.cursor()
-    query = "SELECT * FROM states " + \
-            "WHERE name = '{}' ORDER BY id ASC".format(searched)
 
-    query_rows = cur.fetchall()
-    for row in query_rows:
+    # Sanitize single quotes in input (very basic protection)
+    searched_safe = searched.replace("'", "''")
+
+    # Proper query construction with format()
+    query = (
+        "SELECT * FROM states "
+        "WHERE name = '{}' ORDER BY id ASC"
+    ).format(searched_safe)
+
+    cur.execute(query)
+
+    for row in cur.fetchall():
         print(row)
+
     cur.close()
     conn.close()
