@@ -26,10 +26,8 @@ if __name__ == "__main__":
     searched_safe = searched.replace("'", "''")
 
     # Proper query construction with format()
-    query = (
-        "SELECT * FROM states "
-        "WHERE BINARY name = '{}' ORDER BY id ASC"
-    ),(searched_safe,)
+    query = ("SELECT * FROM states "
+             "WHERE BINARY name = '{}' ORDER BY id ASC"), (searched_safe,)
 
     cur.execute(query)
 
