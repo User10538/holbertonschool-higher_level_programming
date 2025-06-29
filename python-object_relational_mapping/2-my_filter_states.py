@@ -20,8 +20,7 @@ if __name__ == "__main__":
                            passwd=password, db=name, charset="utf8")
     cur = conn.cursor()
     query = "SELECT * FROM states " + \
-    "WHERE name = '{}' ORDER BY id ASC".format(searched)
-    cur.execute(query)
+            "WHERE name = '{}' ORDER BY id ASC".format(searched)
 
     query_rows = cur.fetchall()
     for row in query_rows:
