@@ -21,10 +21,8 @@ if __name__ == "__main__":
     )
     cur = conn.cursor()
 
-    # Sanitize single quotes in input (very basic protection)
-    searched_safe = searched.replace("'", "''")
-
-    cur.execute()
+    query = "SELECT * FROM states WHERE BINARY name = %s ORDER BY id ASC"
+    cur.execute(query)
 
     for row in cur.fetchall():
         print(row)
