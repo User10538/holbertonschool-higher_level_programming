@@ -30,10 +30,7 @@ if __name__ == "__main__":
         .filter(State.name.like('%a%'))\
         .order_by(State.id)\
         .all()
-
-    if states_with_a:
-        for state in states_with_a:
+    for state in states_with_a:
             print(f"{state.id}: {state.name}")
-    else:
-        print(f"Nothing")
+            
     session.close()
