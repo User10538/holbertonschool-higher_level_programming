@@ -27,8 +27,6 @@ if __name__ == "__main__":
     session = Session(engine)
     # Fetch the first State object ordered by id
     first_state = session.query(State).order_by(State.id).first()
-    
-    # HERE: no SQL query, only objects!
-    for state in session.query(State).order_by(State.id).all():
-        print(f"{first_state.id}: {first_state.name}")
+
+    print(f"{first_state.id}: {first_state.name}")
     session.close()
