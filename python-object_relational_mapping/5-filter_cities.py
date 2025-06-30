@@ -9,7 +9,8 @@ import MySQLdb
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:
-        sys.exit("Usage: ./script.py <username> <password> <database> <state_name>")
+        sys.exit("Usage: ./script.py <username> <password> "
+                 "<database> <state_name>")
 
     username = sys.argv[1]
     password = sys.argv[2]
@@ -41,7 +42,6 @@ if __name__ == "__main__":
 
     cities = [row[1] for row in cur.fetchall()]
     print(", ".join(cities))
-
 
     cur.close()
     db.close()
