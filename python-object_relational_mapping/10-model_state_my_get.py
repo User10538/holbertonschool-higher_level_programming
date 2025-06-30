@@ -28,11 +28,10 @@ if __name__ == "__main__":
     session = Session(engine)
 
     # Query for states whose name contains the search string
-    results = session.query(State).filter(State.name.like(f"%{search}%")).order_by(State.id).first()
-    
+    results = session.query(State).filter(State.name == search).first()
+
     if results:
-        for state in results:
-            print(f"{state.id}")
+        print(f"{results.id}")
     else:
         print(f"Not found")
 
