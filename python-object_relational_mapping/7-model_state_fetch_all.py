@@ -9,7 +9,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import (create_engine)
 
 if __name__ == "__main__":
-    if len(sys.argv) != 5:
+    if len(sys.argv) != 4:
         sys.exit("Usage: ./script.py <username> <password> "
                  "<database> <state_name>")
     
