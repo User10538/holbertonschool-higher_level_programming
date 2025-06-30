@@ -9,13 +9,19 @@ of a string with maximum 128 characters and can’t be null
 """
 import sys
 from sqlalchemy import Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+
 
 """ 
 Create the base class for class definitions
 """
 Base = declarative_base()
 
-class State():
+class State(Base):
+     """
+     State class linked to the 'states' table
+     """
+
     __tablename__ = "states"
 
     id = Column(Integer, Primary_key=True, nullable=False, autoincrement=True)
