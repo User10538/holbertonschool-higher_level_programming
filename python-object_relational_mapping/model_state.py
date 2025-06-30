@@ -18,7 +18,7 @@ Create the base class for class definitions
 Base = declarative_base()
 
 class State(Base):
-     """
+    """
      State class linked to the 'states' table
      """
 
