@@ -10,7 +10,9 @@ of a string with maximum 128 characters and can’t be null
 import sys
 from sqlalchemy import Column, Integer, String
 
-# Create the base class for class definitions
+""" 
+Create the base class for class definitions
+"""
 Base = declarative_base()
 
 class State():
