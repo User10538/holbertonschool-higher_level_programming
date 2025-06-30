@@ -9,7 +9,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import (create_engine)
 
 if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format("root", "root", "my_db"), pool_pre_ping=True)
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}', pool_pre_ping=True)
     Base.metadata.create_all(engine)
 
     session = Session(engine)
