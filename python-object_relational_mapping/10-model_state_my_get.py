@@ -28,7 +28,7 @@ if __name__ == "__main__":
     session = Session(engine)
 
     # Query for states whose name contains the search string
-    results = session.query(State).filter(State.name.like(f"%{search}%")).order_by(State.id).all()
+    results = session.query(State).filter(State.name.like(f"%{search}%")).order_by(State.id).first()
     
     if results:
         for state in results:
