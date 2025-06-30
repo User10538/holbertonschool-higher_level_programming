@@ -39,9 +39,9 @@ if __name__ == "__main__":
     """
     cur.execute(query, (state_name,))
 
-    # Print each row as a tuple exactly as requested
-    for row in cur.fetchall():
-        print(row)
+    cities = [row[1] for row in cur.fetchall()]
+    print(", ".join(cities))
+
 
     cur.close()
     db.close()
