@@ -28,5 +28,8 @@ if __name__ == "__main__":
     # Fetch the first State object ordered by id
     first_state = session.query(State).order_by(State.id).first()
 
-    print(f"{first_state.id}: {first_state.name}")
+    if first_state:
+        print(f"{first_state.id}: {first_state.name}")
+    else:
+        print(f"Nothing")
     session.close()
