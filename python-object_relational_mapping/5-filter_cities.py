@@ -8,8 +8,8 @@ import sys
 import MySQLdb
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        sys.exit("Usage: ./script.py <username> <password> <database>")
+    if len(sys.argv) != 5:
+        sys.exit("Usage: ./script.py <username> <password> <database> <state_name>")
 
     username = sys.argv[1]
     password = sys.argv[2]
@@ -29,6 +29,7 @@ if __name__ == "__main__":
 
     # Execute single query to get cities and their states,
     # ordered by city id ascending
+    # It’s a clean and readable way to define a long SQL string.
     query = """
         SELECT cities.id, cities.name, states.name
         FROM cities
