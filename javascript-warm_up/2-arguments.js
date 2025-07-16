@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-function checkForArgument (arg) {
+function checkForArgument (...arg) {
   if (arg.length === 0) {
     console.log('No argument');
   } else if (arg.length === 1) {
