@@ -1,7 +1,9 @@
 #!/usr/bin/node
 
-const multi_languages = ['C is fun', 
-    'Python is cool', 
-    'JavaScript is amazing'];
+const multiLanguages = ['C is fun',
+  'Python is cool',
+  'JavaScript is amazing'];
 
-console.log(multi_languages);
+for (let i = 0; i < multiLanguages.length; i++) {
+  console.log(multiLanguages[i]);
+}
