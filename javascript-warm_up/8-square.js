@@ -2,7 +2,7 @@
 
 const arg1 = process.argv[2];
 
-const x = Math.sqrt(arg1);
+const x = parseInt(arg1);
 
 if (isNaN(x)) {
   console.log('Missing size');
