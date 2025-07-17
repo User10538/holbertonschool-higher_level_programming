@@ -5,10 +5,10 @@ Your script should take 3 arguments: mysql username, mysql password
 and database name (no argument validation needed)
 You must use the module MySQLdb (import MySQLdb)
 """
-import sys
-import MySQLdb
 
 if __name__ == "__main__":
+    import sys
+    import MySQLdb
 
     username = sys.argv[1]
     password = sys.argv[2]
