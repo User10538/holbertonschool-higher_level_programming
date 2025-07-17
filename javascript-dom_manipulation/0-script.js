@@ -1,3 +1,5 @@
 #!/usr/bin/node
 
-document.querySelector('#header').innerHTML = 'header color =#FF0000';
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelector('header').style.color = '#FF0000';
+});
