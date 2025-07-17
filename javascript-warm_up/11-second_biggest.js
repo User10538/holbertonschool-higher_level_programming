@@ -3,22 +3,18 @@
 const arg1 = process.argv.slice(2).map(Number);
 
 function getSecondLargest (a) {
-  if (a.length === 1 || a.every(isNaN)) {
-    console.log(0);
-  } else {
-    const n = a.length;
+  const n = a.length;
 
-    // Sort the array in non-decreasing order
-    a.sort((a, b) => a - b);
-    // Start from second last element as last is the largest
-    for (let i = n - 2; i >= 0; i--) {
-      // return the first element which is not equal to the
-      // largest element
-      if (a[i] !== a[n - 1]) {
-        return a[i];
-      }
+  // Sort the array in non-decreasing order
+  a.sort((a, b) => a - b);
+  // Start from second last element as last is the largest
+  for (let i = n - 2; i >= 0; i--) {
+    // return the first element which is not equal to the
+    // largest element
+    if (a[i] !== a[n - 1]) {
+      return a[i];
     }
-    return 0;
   }
+  return 0;
 }
 console.log(getSecondLargest(arg1));
