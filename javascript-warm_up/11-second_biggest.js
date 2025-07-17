@@ -2,6 +2,7 @@
 
 const arg1 = process.argv.slice(2).map(Number);
 
+// function getSecondLargest that takes an array a.
 function getSecondLargest (a) {
   const n = a.length;
 
