@@ -57,6 +57,9 @@ def get_products():
     # Optional ID filtering
     if product_id:
         data = [item for item in data if str(item.get('id')) == product_id]
+        if not data:
+            error = "Product not found"
+            return render_template('product_display.html', products=[], error=error)
 
     return render_template('product_display.html', products=data)
 
