@@ -21,10 +21,13 @@ def read_CSV_data():
             csv_reader = csv.DictReader(f)
             return list(csv_reader)
      
-def read_sql_data():
+def read_sql_data(product_id=None):
     conn = sqlite3.connect('products.db')
     cursor = conn.cursor()
-    cursor.execute("SELECT id, name, category, price FROM Products")
+    if product_id:
+        cursor.execute("SELECT id, name, category, price FROM Products WHERE id = ?", (product_id,))
+    else:
+        cursor.execute("SELECT id, name, category, price FROM Products")
     rows = cursor.fetchall()
     conn.close()
     return [
