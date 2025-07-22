@@ -13,13 +13,13 @@
                 </tr>
             </thead>
             <tbody>
-                {% for item in data %}
+                {% for item in products %}
                 <tr>
-                    <th scope="row">{{ item.name }}</th>
+                    <td>{{ item.name }}</td>
                     <td>{{ item.category }}</td>
                     <td>{{ item.price }}</td>
                 </tr>
-                {% endfor %}
+            {% endfor %}
             </tbody>
         </table>
 
