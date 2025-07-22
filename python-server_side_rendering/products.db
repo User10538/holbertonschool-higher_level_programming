@@ -1,0 +1,5 @@
+CREATE TABLE Products id (primary key), name, price, category
+
+Insert the following data into the Products table:
+id: 1, name: “Laptop”, price: 799.99, category: “Electronics”
+id: 2, name: “Coffee Mug”, price: 15.99, category: “Home Goods”
