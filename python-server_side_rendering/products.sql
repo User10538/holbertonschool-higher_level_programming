@@ -9,7 +9,10 @@ CREATE TABLE IF NOT EXISTS states (
     category VARCHAR(256) NOT NULL,
 );
 
-INSERT INTO Products (id) VALUES (1), (2);
-INSERT INTO Products (name) VALUES ("laptop"), ("Coffee Mug");
-INSERT INTO Products (price) VALUES (799.99), (15.99);
-INSERT INTO Products (category) VALUES (“Electronics”), (“Home Goods”);
+cursor.execute('''
+    INSERT INTO Products (id, name, category, price)
+    VALUES
+    (1, 'Laptop', 'Electronics', 799.99),
+    (2, 'Coffee Mug', 'Home Goods', 15.99),
+    (3, 'Jarvis', 'AI Assistant', 2999.99)
+''')
