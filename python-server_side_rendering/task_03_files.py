@@ -41,7 +41,7 @@ def show_items():
             items = data.get('items', [])
     return render_template('items.html', items=items)
 
-@app.route('/products')
+@app.route('/product_display')
 def get_products():
     source = request.args.get('source')
 

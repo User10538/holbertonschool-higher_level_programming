@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return response.json();
     })
     .then((data) => {
-      const translation = data.results;
+     // const translation = data.results;
       const ul = document.getElementById('hello');
       document.getElementById('hello').textContent = data.hello;
     });
