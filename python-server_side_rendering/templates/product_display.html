@@ -10,6 +10,7 @@
             <caption><h1>Product Display</h1></caption>
             <thead>
                 <tr>
+                    <th scope="col"> Product id</th>
                     <th scope="col"> Name</th>
                     <th scope="col">Category</th>
                     <th scope="col">Price</th>
@@ -18,6 +19,7 @@
             <tbody>
                 {% for item in products %}
                 <tr>
+                    <td>{{ product.name }}</td>
                     <td>{{ item.name }}</td>
                     <td>{{ item.category }}</td>
                     <td>{{ item.price }}</td>
