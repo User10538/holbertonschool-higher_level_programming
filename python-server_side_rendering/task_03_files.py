@@ -41,7 +41,7 @@ def show_items():
             items = data.get('items', [])
     return render_template('items.html', items=items)
 
-@app.route('/product_display')
+@app.route('/product')
 def get_products():
     source = request.args.get('source')
     product_id = request.args.get('id')
@@ -49,7 +49,7 @@ def get_products():
     if source == 'json':
         data = read_json_data()
     elif source == 'csv':
-        data == read_CSV_data
+        data = read_CSV_data
     else:
         error = "Wrong source. Please use 'json' or 'csv'."
         return render_template('product_display.html', error=error)
