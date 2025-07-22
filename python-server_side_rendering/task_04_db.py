@@ -20,6 +20,18 @@ def read_CSV_data():
      with open('products.csv', encoding="utf-8") as f:
             csv_reader = csv.DictReader(f)
             return list(csv_reader)
+     
+def read_sql_data():
+    conn = sqlite3.connect('products.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT id, name, category, price FROM Products")
+    rows = cursor.fetchall()
+    conn.close()
+    return [
+        {"id": row[0], "name": row[1], "category": row[2], "price": row[3]}
+        for row in rows
+    ]
+
 
 @app.route('/')
 def home():
@@ -52,7 +64,7 @@ def get_products():
     elif source == 'csv':
         data = read_CSV_data()
     elif source == 'sql':
-        data = create_database()
+        data = read_sql_data()
     else:
         error = "Wrong source. Please use 'json' or 'csv'."
         return render_template('product_display.html', error=error)
@@ -88,6 +100,7 @@ def create_database():
                    ''')
     conn.commit()
     conn.close()
+    
     
 if __name__ == '__main__':
     create_database()
