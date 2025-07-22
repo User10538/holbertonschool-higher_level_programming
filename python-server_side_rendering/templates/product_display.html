@@ -1,0 +1,29 @@
+<html>
+    <header>
+        <div id="header-placeholder">{% include 'header.html' %}</div>
+    </header>
+    <body>
+        <table>
+            <caption><h1>Product Display</h1></caption>
+            <thead>
+                <tr>
+                    <th scope="col"> Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in data %}
+                <tr>
+                    <th scope="row">{{item.name}}</th>
+                    <td>{{item.category}}</td>
+                    <td>{{item.price}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+    <footer>
+        <div id="footer-placeholder">{% include 'footer.html' %}</div>
+   </footer>
+</html>
