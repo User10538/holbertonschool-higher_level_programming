@@ -44,6 +44,7 @@ def show_items():
 @app.route('/product_display')
 def get_products():
     source = request.args.get('source')
+    product_id = request.args.get('id')
 
     if source == 'json':
         data = read_json_data()
@@ -52,6 +53,12 @@ def get_products():
     else:
         error = "Wrong source. Please use 'json' or 'csv'."
         return render_template('product_display.html', error=error)
+    
+    # Optional ID filtering
+    if product_id:
+        data = [item for item in data if str(item.get('id')) == product_id]
+
+    return render_template('product_display.html', products=data)
 
 
 if __name__ == '__main__':
