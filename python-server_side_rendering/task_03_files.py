@@ -8,7 +8,7 @@ app = Flask(__name__)
 def read_json_data():
     if not os.path.exists('products.json'):
         return []
-    with open("products.json", "w", encoding="utf-8") as f:
+    with open("products.json", "r", encoding="utf-8") as f:
         return json.load(f)
 
 #Helper function to read CSV data
