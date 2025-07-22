@@ -13,11 +13,10 @@ def read_json_data():
 
 #Helper function to read CSV data
 def read_CSV_data():
-     CSV_filename = "products.csv"
-     if not os.path.exists(CSV_filename):
+     if not os.path.exists('products.csv'):
         return []
      
-     with open(CSV_filename, encoding="utf-8") as f:
+     with open('products.csv', encoding="utf-8") as f:
             csv_reader = csv.DictReader(f)
             return list(csv_reader)
 
