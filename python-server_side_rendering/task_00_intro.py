@@ -30,9 +30,9 @@ def generate_invitations (template, attendees):
                 event_location=attendee.get("event_location", "N/A")
             )
             index = index + 1
-        filename = f"output_{index}.txt" 
-        with open(filename, "w", encoding="utf-8") as f:
-                    f.write(personalized_invitation) 
+            filename = f"output_{index}.txt" 
+            with open(filename, "w", encoding="utf-8") as f:
+                        f.write(personalized_invitation) 
 
         logging.info(f"Invitation saved: {filename}")
 
