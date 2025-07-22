@@ -65,6 +65,9 @@ def get_products():
     return render_template('product_display.html', products=data)
 
 def create_database():
+    if os.path.exists('products.db'):
+        os.remove('products.db')
+        
     conn = sqlite3.connect('products.db')
     cursor = conn.cursor()
     cursor.execute('''
