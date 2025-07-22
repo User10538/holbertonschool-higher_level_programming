@@ -49,7 +49,7 @@ def get_products():
     if source == 'json':
         data = read_json_data()
     elif source == 'csv':
-        data = read_CSV_data
+        data = read_CSV_data()
     else:
         error = "Wrong source. Please use 'json' or 'csv'."
         return render_template('product_display.html', error=error)
