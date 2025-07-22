@@ -51,6 +51,8 @@ def get_products():
         data = read_json_data()
     elif source == 'csv':
         data = read_CSV_data()
+    elif source == 'sql':
+        data = create_database()
     else:
         error = "Wrong source. Please use 'json' or 'csv'."
         return render_template('product_display.html', error=error)
@@ -67,7 +69,7 @@ def get_products():
 def create_database():
     if os.path.exists('products.db'):
         os.remove('products.db')
-        
+
     conn = sqlite3.connect('products.db')
     cursor = conn.cursor()
     cursor.execute('''
