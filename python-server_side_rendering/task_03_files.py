@@ -9,7 +9,7 @@ def read_json_data():
     if not os.path.exists('products.json'):
         return []
     with open("products.json", "w", encoding="utf-8") as f:
-        json.load(f)
+        return json.load(f)
 
 #Helper function to read CSV data
 def read_CSV_data():
