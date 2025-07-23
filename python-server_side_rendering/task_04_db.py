@@ -35,12 +35,14 @@ def products():
             get_id = [row for row in data if row['id'] == int(request.args.get('id'))]
         else:
             get_id = data
+            
     elif request.args.get('source') == 'csv':
         with open('products.csv', mode='r', newline='') as f:
             data = csv.DictReader(f)
             get_id = [row for row in data]
         if request.args.get('id'):
             get_id = [row for row in get_id if row['id'] == request.args.get('id')]
+
     elif request.args.get('source') == 'sql':
         conn = sqlite3.connect('products.db')
         conn.row_factory = sqlite3.Row
