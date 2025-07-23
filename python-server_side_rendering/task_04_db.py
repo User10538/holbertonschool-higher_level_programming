@@ -87,8 +87,6 @@ def create_database():
 
     conn = sqlite3.connect('products.db')
     cursor = conn.cursor()
-    cursor.execute("DELETE FROM products")
-    cursor.execute("DELETE FROM sqlite_sequence WHERE name='products'") 
     cursor.execute('''
                    CREATE TABLE IF NOT EXISTS Products (
                    id INTEGER PRIMARY KEY,
@@ -97,6 +95,8 @@ def create_database():
                    price REAL NOT NULL
                    )
                    ''')
+    cursor.execute("DELETE FROM products")
+    cursor.execute("DELETE FROM sqlite_sequence WHERE name='products'") 
     cursor.execute('''
         INSERT INTO Products (id, name, category, price)
                    VALUES
