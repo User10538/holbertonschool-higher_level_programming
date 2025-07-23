@@ -62,7 +62,11 @@ def get_products():
     source = request.args.get('source')
     product_id = request.args.get('id')
 
-    if source == 'sql':
+    if source == 'json':
+        data = read_json_data()
+    elif source == 'csv':
+        data = read_CSV_data()
+    elif source == 'sql':
         data = read_sql_data()
     else:
         error = "Wrong source. Please use 'json' or 'csv'."
@@ -92,7 +96,7 @@ def create_database():
                    )
                    ''')
     try:
-        cursor.execute("DELETE FROM sqlite_sequence WHERE name='products'")
+        cursor.execute("DELETE FROM Products WHERE name='products'")
     except sqlite3.OperationalError:
         pass            
     cursor.execute('''
