@@ -62,11 +62,7 @@ def get_products():
     source = request.args.get('source')
     product_id = request.args.get('id')
 
-    if source == 'json':
-        data = read_json_data()
-    elif source == 'csv':
-        data = read_CSV_data()
-    elif source == 'sql':
+    if source == 'sql':
         data = read_sql_data()
     else:
         error = "Wrong source. Please use 'json' or 'csv'."
