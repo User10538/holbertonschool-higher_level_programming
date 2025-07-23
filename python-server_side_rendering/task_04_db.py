@@ -32,8 +32,7 @@ def products():
         with open('products.json', 'r') as f:
             data = json.load(f)
         if request.args.get('id'):
-            id_param = request.args.get('id')
-            matrix = [row for row in matrix if row['id'] == id_param]
+            matrix = [row for row in data if row['id'] == int(request.args.get('id'))]
         else:
             matrix = data
     elif request.args.get('source') == 'csv':
@@ -60,8 +59,7 @@ def products():
         matrix = 'error'
     if len(matrix) == 0:
         matrix = 'no product'
-    return render_template('product_display.html', products=matrix)
-
+    return render_template('product_display.html', data=matrix)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
