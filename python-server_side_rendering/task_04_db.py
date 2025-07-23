@@ -101,14 +101,15 @@ def create_database():
     except sqlite3.OperationalError:
         pass
     cursor.execute('''
-        INSERT INTO Products (id, name, category, price)
-        VALUES
-        (1, 'Jarvis', 'AI', 9999.99),
-        (2, 'Laptop', 'Electronics', 799.99),
-        (3, 'Coffee Mug', 'Home Goods', 15.99),
-        (4, 'Tim', 'AI Assistant', 2999.99),
-        (5, 'Tesla Coil', 'Electronics', 499.99)
-    ''')
+                    INSERT INTO Products (id, name, category, price)
+                    VALUES
+                    (1, 'Jarvis', 'AI', 9999.99),
+                    (2, 'Laptop', 'Electronics', 799.99),
+                    (3, 'Coffee Mug', 'Home Goods', 15.99),
+                    (4, 'Tim', 'AI Assistant', 2999.99),
+                    (5, 'Tesla Coil', 'Electronics', 499.99),
+                    (24, 'Jarvis', 'AI', 9999.99)
+                ''')
     conn.commit()
     conn.close()
 
