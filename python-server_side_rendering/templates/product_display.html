@@ -1,33 +1,39 @@
-<html>
-    <header>
-        <div id="header-placeholder">{% include 'header.html' %}</div>
-    </header>
-    <body>
-        {% if error %}
-            <p style="color: red;">{{ error }}</p>
-        {% endif %}
-        <table>
-            <caption><h1>Product Display</h1></caption>
-            <thead>
-                <tr>
-                    <th scope="col"> Name</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in products %}
-                <tr>
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.category }}</td>
-                    <td>{{ item.price }}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+<!DOCTYPE html>
+<html lang="en">
 
-    </body>
-    <footer>
-        <div id="footer-placeholder">{% include 'footer.html' %}</div>
-   </footer>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+</head>
+
+<body>
+    {%if data == 'error'%}
+    <p>Wrong source</p>
+    {%elif data == 'no product'%}
+    <p>Product not found</p>
+    {%else%}
+    <table>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+        {%for row in data%}
+        <tr>
+            <td>{{row.name}}</td>
+            <td>{{row.category}}</td>
+            <td>{{row.price}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+    {%endif%}
+</body>
+
 </html>
