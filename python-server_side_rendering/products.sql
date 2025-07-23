@@ -8,4 +8,3 @@ CREATE TABLE IF NOT EXISTS Products (
     category VARCHAR(256) NOT NULL,
     price DECIMAL(10, 2) NOT NULL
 );
-INSERT INTO products (name, category, price) VALUES ('Jarvis', 'AI', 9999.99);
