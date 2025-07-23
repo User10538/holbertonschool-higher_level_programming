@@ -95,8 +95,10 @@ def create_database():
                    price REAL NOT NULL
                    )
                    ''')
-    cursor.execute("DELETE FROM products")
-    cursor.execute("DELETE FROM sqlite_sequence WHERE name='products'") 
+    try:
+        cursor.execute("DELETE FROM sqlite_sequence WHERE name='products'")
+    except sqlite3.OperationalError:
+        pass            
     cursor.execute('''
         INSERT INTO Products (id, name, category, price)
                    VALUES
